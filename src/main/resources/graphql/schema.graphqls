@@ -1,0 +1,83 @@
+type Product {
+    id: ID!
+    name: String!
+    description: String
+    price: Float!
+    stock: Int!
+    imageUrl: String
+    category: Category!
+    createdAt: String!
+    updatedAt: String!
+}
+
+type Category {
+    id: ID!
+    name: String!
+    description: String
+    products: [Product!]!
+    createdAt: String!
+    updatedAt: String!
+}
+
+type PageInfo {
+    page: Int!
+    pageSize: Int!
+    totalElements: Long!
+    totalPages: Int!
+    hasNext: Boolean!
+    hasPrevious: Boolean!
+}
+
+type ProductPage {
+    items: [Product!]!
+    pageInfo: PageInfo!
+}
+
+type CategoryPage {
+    items: [Category!]!
+    pageInfo: PageInfo!
+}
+
+input ProductInput {
+    name: String!
+    description: String
+    price: Float!
+    stock: Int!
+    imageUrl: String
+    categoryId: ID!
+}
+
+input CategoryInput {
+    name: String!
+    description: String
+}
+
+enum ProductSortField {
+    NAME
+    PRICE
+    CREATED_AT
+}
+
+enum SortDirection {
+    ASC
+    DESC
+}
+
+type Query {
+    products(keyword: String, categoryId: ID, page: Int = 0, pageSize: Int = 10,
+             sortBy: ProductSortField = CREATED_AT, direction: SortDirection = DESC): ProductPage!
+    productsByPrice(page: Int = 0, pageSize: Int = 20): ProductPage!
+    productsByCategory(categoryId: ID!, page: Int = 0, pageSize: Int = 20): ProductPage!
+    productById(id: ID!): Product
+    categories(keyword: String, page: Int = 0, pageSize: Int = 10): CategoryPage!
+    categoryById(id: ID!): Category
+}
+
+type Mutation {
+    createProduct(input: ProductInput!): Product!
+    updateProduct(id: ID!, input: ProductInput!): Product!
+    deleteProduct(id: ID!): Boolean!
+    createCategory(input: CategoryInput!): Category!
+    updateCategory(id: ID!, input: CategoryInput!): Category!
+    deleteCategory(id: ID!): Boolean!
+}
