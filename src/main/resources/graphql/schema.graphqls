@@ -22,7 +22,7 @@ type Category {
 type PageInfo {
     page: Int!
     pageSize: Int!
-    totalElements: Long!
+    totalElements: Int!
     totalPages: Int!
     hasNext: Boolean!
     hasPrevious: Boolean!
