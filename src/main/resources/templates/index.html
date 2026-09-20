@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>GraphQL Shop · Home</title><link rel="stylesheet" th:href="@{/app.css}"></head>
+<body>
+<div class="shell">
+    <header class="topbar"><a class="brand" href="/"><span class="brand-mark">GQ</span><span>GraphQL Shop</span></a><nav class="nav"><a class="active" href="/">Home</a><a href="/admin/products">Products</a><a href="/admin/categories">Categories</a></nav></header>
+    <main>
+        <section class="hero"><div><div class="eyebrow">A small catalog, precisely queried</div><h1>Chọn món đồ đúng với nhịp làm việc của bạn.</h1><p>Khám phá catalog được sắp theo giá từ thấp đến cao, hoặc lọc ngay theo category. Mỗi khối dữ liệu trên trang này đi qua GraphQL.</p></div><div class="hero-note"><strong>12+ items</strong><span>Laptop, phone, accessory và những món nhỏ làm góc làm việc dễ chịu hơn.</span></div></section>
+        <section><div class="section-head"><div><div class="eyebrow">Browse by signal</div><h2>Giá thấp trước</h2></div><p>Chọn category để thu hẹp catalog.</p></div><div id="category-strip" class="category-strip"><div class="loading">Đang tải category...</div></div><div id="home-products" class="product-grid"></div></section>
+    </main>
+    <footer class="footer">GRAPHQL SHOP / SPRING BOOT + THYMELEAF + SQL SERVER</footer>
+</div>
+<script th:src="@{/app.js}"></script>
+</body>
+</html>

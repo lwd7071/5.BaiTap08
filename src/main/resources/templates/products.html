@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Products · GraphQL Shop</title><link rel="stylesheet" th:href="@{/app.css}"></head>
+<body>
+<div class="shell"><header class="topbar"><a class="brand" href="/"><span class="brand-mark">GQ</span><span>GraphQL Shop</span></a><nav class="nav"><a href="/">Home</a><a class="active" href="/admin/products">Products</a><a href="/admin/categories">Categories</a></nav></header>
+<main class="admin-main"><div class="admin-heading"><div><div class="eyebrow">Catalog control / 01</div><h1>Products</h1></div><button id="open-product-form" class="button">+ Thêm product</button></div>
+<div class="toolbar"><input id="product-search" class="field" placeholder="Tìm theo tên product..."><select id="product-category-filter" class="field"><option value="">Tất cả category</option></select></div>
+<div class="table-wrap"><table><thead><tr><th>ID</th><th>Product</th><th>Category</th><th>Price</th><th>Stock</th><th>Actions</th></tr></thead><tbody id="product-rows"></tbody></table></div>
+<div class="pagination"><span id="page-label">Đang tải...</span><div class="pagination-controls"><button id="prev-page" class="button secondary">← Trước</button><button id="next-page" class="button secondary">Sau →</button></div></div></main>
+<footer class="footer">PRODUCTS / SEARCH + PAGINATION + CRUD</footer></div>
+<div id="product-modal" class="modal-backdrop hidden"><div class="modal"><div class="modal-header"><h2 id="product-modal-title">Thêm product</h2><button id="close-product-form" class="action-link">Đóng</button></div><form id="product-form" class="form-grid"><label class="form-label">Tên product<input class="field" name="name" required></label><label class="form-label">Mô tả<textarea class="field" name="description" rows="3"></textarea></label><label class="form-label">Giá<input class="field" name="price" type="number" min="0" step="0.01" required></label><label class="form-label">Tồn kho<input class="field" name="stock" type="number" min="0" required></label><label class="form-label">Image URL<input class="field" name="imageUrl"></label><label class="form-label">Category<select id="product-category" class="field" name="categoryId" required></select></label><div class="form-actions"><button type="button" id="cancel-product-form" class="button secondary">Hủy</button><button class="button">Lưu product</button></div></form></div></div>
+<script th:src="@{/app.js}"></script>
+</body></html>

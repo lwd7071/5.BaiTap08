@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Categories · GraphQL Shop</title><link rel="stylesheet" th:href="@{/app.css}"></head>
+<body>
+<div class="shell"><header class="topbar"><a class="brand" href="/"><span class="brand-mark">GQ</span><span>GraphQL Shop</span></a><nav class="nav"><a href="/">Home</a><a href="/admin/products">Products</a><a class="active" href="/admin/categories">Categories</a></nav></header>
+<main class="admin-main"><div class="admin-heading"><div><div class="eyebrow">Catalog control / 02</div><h1>Categories</h1></div><button id="open-category-form" class="button">+ Thêm category</button></div>
+<div class="toolbar"><input id="category-search" class="field" placeholder="Tìm theo tên category..."></div>
+<div class="table-wrap"><table><thead><tr><th>ID</th><th>Category</th><th>Description</th><th>Products</th><th>Actions</th></tr></thead><tbody id="category-rows"></tbody></table></div>
+<div class="pagination"><span id="page-label">Đang tải...</span><div class="pagination-controls"><button id="prev-page" class="button secondary">← Trước</button><button id="next-page" class="button secondary">Sau →</button></div></div></main>
+<footer class="footer">CATEGORIES / SEARCH + PAGINATION + CRUD</footer></div>
+<div id="category-modal" class="modal-backdrop hidden"><div class="modal"><div class="modal-header"><h2 id="category-modal-title">Thêm category</h2><button id="close-category-form" class="action-link">Đóng</button></div><form id="category-form" class="form-grid"><label class="form-label">Tên category<input class="field" name="name" required></label><label class="form-label">Mô tả<textarea class="field" name="description" rows="3"></textarea></label><div class="form-actions"><button type="button" id="cancel-category-form" class="button secondary">Hủy</button><button class="button">Lưu category</button></div></form></div></div>
+<script th:src="@{/app.js}"></script>
+</body></html>
